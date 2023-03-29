@@ -4,16 +4,10 @@ import { useState } from "react";
 function App() {
   const [toDos, setTodos] = useState([]);
   const [toDo, setTodo] = useState('');
-  const daysOfWeek = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday'
-  ];
-  const currentDayOfWeek = daysOfWeek[new Date().getDay()];
+  const [deletedTodos, setDeletedTodos] = useState([]);
+  const currentDayOfWeek = new Date().toLocaleString("default", {
+    weekday: "long",
+  });
 
   return (
     <div className="app">
@@ -31,52 +25,65 @@ function App() {
           type="text"
           placeholder="🖊️ Add item..." />
         <i
-          onClick={() => setTodos([
-            ...toDos, {
-              id: Date.now(),
-              text: toDo,
-              status: false
-            }
-          ])
-          }
+          onClick={() => {
+            setTodos([
+              ...toDos, {
+                id: Date.now(),
+                text: toDo,
+                status: false
+              }
+            ]);
+            setTodo(""); // Clear input field
+          }}
           className="fas fa-plus"></i>
       </div>
+
       <div className="todos">
         {
           toDos.map((obj) => {
             return (
               <div key={obj.id} className="todo">
                 <div className="left">
-                  <input
-                    onChange={(e) => {
+                  <button
+                    className={obj.status
+                      ? 'completed'
+                      : 'incomplete'}
+                    onClick={() => {
                       setTodos(toDos.map((todo) => {
                         if (todo.id === obj.id) {
-                          todo.status = e.target.checked;
+                          todo.status = !obj.status;
                         }
                         return todo;
                       }));
-                    }}
-                    value={obj.status}
-                    type="checkbox"
-                    name="" 
-                    id="" />
-                  <p>{obj.text}</p>
+                    }}>
+                    {obj.text}
+                  </button>
+
                 </div>
                 <div className="right">
-                  <i
-                    onClick={() => setTodos(toDos.filter((todo) => todo.id !== obj.id))}
+                <i
+                    onClick={() => {
+                      setDeletedTodos([...deletedTodos, obj]); 
+                      setTodos(toDos.filter((todo) => todo.id !== obj.id));
+                    }}
                     className="fas fa-times"></i>
+
                 </div>
               </div>
             );
           })
         }
+
+      </div>
+      <div className="deleted-todos">
+        <h3 style={{color:'red', marginTop: 30}}>Removed Todos:</h3>
         {
-          toDos.map((obj) => {
-            if (obj.status) {
-              return <h1 key={obj.id}>{obj.text}</h1>;
-            }
-            return null;
+          deletedTodos.map((obj) => {
+            return (
+              <div key={obj.id} className="deleted-todo">
+                <p>{obj.text}</p>
+              </div>
+            );
           })
         }
       </div>

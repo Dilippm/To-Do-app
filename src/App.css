@@ -1,87 +1,127 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  background-color: #020631;
+    background-color: black;
 }
 
 .app {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -10%);
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    background-color: black;
+    border: 2px solid white;
+    padding: 20px;
 }
 
 .app .mainHeading h1 {
-  text-align: center;
+    text-align: center;
 }
 
 .app h1,
 h2 {
-  color: white;
+    color: white;
 }
 
 .app .input {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .app .input {
-  margin-top: 0.8em;
-  width: 20em;
-  height: 2em;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 6px;
-  padding: 5px;
+    margin-top: 0.8em;
+    width: 20em;
+    height: 2em;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px;
+    padding: 5px;
 }
 
 .app .input input {
-  width: 100%;
-  height: 1.6em;
-  border-color: transparent;
-  outline-color: transparent;
+    width: 100%;
+    height: 1.6em;
+    border-color: transparent;
+    outline-color: transparent;
 }
 
 .app i {
-  cursor: pointer;
-  font-size: larger;
-  font-weight: 900;
-  color: grey;
-  margin-right: 5px;
-}
-.app .todos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.app .todos .todo {
-  margin-top: 0.8em;
-  width: 20em;
-  height: 2em;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 6px;
-  padding: 5px;
-}
-.app .todos .todo .left {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+    cursor: pointer;
+    font-size: larger;
+    font-weight: 900;
+    color: rgb(0, 0, 0);
+    margin-right: 5px;
 }
 
-.app .todos .todo .left p {
-  margin-left: 3px;
-  font-size: medium;
-  font-weight: 700;
-  font-style: normal;
-  color: grey;
+.app .todos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.app .todos .todo {
+    margin-top: 0.8em;
+    width: 20em;
+    height: 2em;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.app .todos .todo .left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.incomplete {
+
+    width: 19em;
+    height: 2.5em;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px;
+    border: none;
+    
+    font-size: medium;
+    font-weight: 700;
+    font-style: normal;
+    color: rgb(8, 1, 1);
+
+}
+
+.completed {
+
+    width: 19em;
+    height: 2.5em;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px;
+    border: none;
+    
+    font-size: medium;
+    font-weight: 700;
+    font-style: normal;
+
+    color: darkgreen; 
+}
+.deleted-todo{
+    color: white;
+    text-decoration: line-through;
+    text-decoration-color: red;
 }
