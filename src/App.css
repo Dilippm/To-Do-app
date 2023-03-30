@@ -57,7 +57,7 @@ h2 {
     cursor: pointer;
     font-size: larger;
     font-weight: 900;
-    color: rgb(0, 0, 0);
+    color: black;
     margin-right: 5px;
 }
 
@@ -72,7 +72,7 @@ h2 {
     margin-top: 0.8em;
     width: 20em;
     height: 2em;
-    background-color: white;
+    background-color: grey;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -87,10 +87,11 @@ h2 {
 }
 
 .incomplete {
+    cursor: pointer;
 
     width: 19em;
     height: 2.5em;
-    background-color: white;
+    background-color: grey;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -100,15 +101,17 @@ h2 {
     font-size: medium;
     font-weight: 700;
     font-style: normal;
-    color: rgb(8, 1, 1);
+    color: white;
 
 }
 
 .completed {
+    cursor: pointer;
+    
 
     width: 19em;
     height: 2.5em;
-    background-color: white;
+    background-color: gray;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -119,10 +122,10 @@ h2 {
     font-weight: 700;
     font-style: normal;
 
-    color: darkgreen; 
+    color: green; 
 }
 .deleted-todo{
-    color: white;
+    color: pink;
     text-decoration: line-through;
-    text-decoration-color: red;
+    /* text-decoration-color: red; */
 }

@@ -35,7 +35,7 @@ function App() {
             ]);
             setTodo(""); // Clear input field
           }}
-          className="fas fa-plus"></i>
+          className="fas fa-plus" title="Add"></i>
       </div>
 
       <div className="todos">
@@ -66,7 +66,7 @@ function App() {
                       setDeletedTodos([...deletedTodos, obj]); 
                       setTodos(toDos.filter((todo) => todo.id !== obj.id));
                     }}
-                    className="fas fa-times"></i>
+                    className="fas fa-times" style={{color:'red'}} title="Delete"></i>
 
                 </div>
               </div>
