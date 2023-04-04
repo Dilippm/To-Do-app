@@ -26,17 +26,36 @@ function App() {
           type="text"
           placeholder="🖊️ Add item..." />
         <i
-          onClick={() => {
-            let toD =toDo.trim()
-            if (!toD) {
-              window.swal({
-                title: "Sorry",
-                text: "Please enter a valid input.",
-                icon: "error",
-                button: "Ok",
-              });
-              return;
-            }
+         onClick={() => {
+          let toD = toDo.trim();
+          if (!toD) {
+            window.swal({
+              title: "Sorry",
+              text: "Please enter a valid input.",
+              icon: "error",
+              button: "Ok",
+            });
+            return;
+          }
+          if (toDos.some((todo) => todo.text === toD)) {
+            window.swal({
+              title: "Duplicate Item",
+              text: "This item already exists in the list. Do you want to add it again?",
+              icon: "warning",
+              buttons: ["Cancel", "Add"],
+            }).then((add) => {
+              if (add) {
+                setTodos([
+                  ...toDos, {
+                    id: Date.now(),
+                    text: toDo,
+                    status: false
+                  }
+                ]);
+                setTodo(""); 
+              }
+            });
+          } else {
             setTodos([
               ...toDos, {
                 id: Date.now(),
@@ -45,7 +64,8 @@ function App() {
               }
             ]);
             setTodo(""); // Clear input field
-          }}
+          }
+        }}
           className="fas fa-plus"
           title="Add"></i>
       </div>
