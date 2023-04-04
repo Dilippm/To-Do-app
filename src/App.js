@@ -4,10 +4,11 @@ import { useState } from "react";
 function App() {
   const [toDos, setTodos] = useState([]);
   const [toDo, setTodo] = useState('');
-  const [deletedTodos, setDeletedTodos] = useState([]);
-  const currentDayOfWeek = new Date().toLocaleString("default", {
-    weekday: "long",
-  });
+ 
+  const currentDayOfWeek = new Date().toLocaleString(
+    "default",
+    { weekday: "long" }
+  );
 
   return (
     <div className="app">
@@ -26,6 +27,16 @@ function App() {
           placeholder="🖊️ Add item..." />
         <i
           onClick={() => {
+            let toD =toDo.trim()
+            if (!toD) {
+              window.swal({
+                title: "Sorry",
+                text: "Please enter a valid input.",
+                icon: "error",
+                button: "Ok",
+              });
+              return;
+            }
             setTodos([
               ...toDos, {
                 id: Date.now(),
@@ -35,7 +46,8 @@ function App() {
             ]);
             setTodo(""); // Clear input field
           }}
-          className="fas fa-plus" title="Add"></i>
+          className="fas fa-plus"
+          title="Add"></i>
       </div>
 
       <div className="todos">
@@ -61,12 +73,16 @@ function App() {
 
                 </div>
                 <div className="right">
-                <i
+                  <i
                     onClick={() => {
-                      setDeletedTodos([...deletedTodos, obj]); 
+                      
                       setTodos(toDos.filter((todo) => todo.id !== obj.id));
                     }}
-                    className="fas fa-times" style={{color:'red'}} title="Delete"></i>
+                    className="fas fa-times"
+                    style={{
+                      color: 'red'
+                    }}
+                    title="Delete"></i>
 
                 </div>
               </div>
@@ -75,18 +91,7 @@ function App() {
         }
 
       </div>
-      <div className="deleted-todos">
-        <h3 style={{color:'red', marginTop: 30}}>Removed Todos:</h3>
-        {
-          deletedTodos.map((obj) => {
-            return (
-              <div key={obj.id} className="deleted-todo">
-                <p>{obj.text}</p>
-              </div>
-            );
-          })
-        }
-      </div>
+   
     </div>
   );
 }
