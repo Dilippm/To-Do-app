@@ -94,10 +94,26 @@ function App() {
                 </div>
                 <div className="right">
                   <i
-                    onClick={() => {
-                      
-                      setTodos(toDos.filter((todo) => todo.id !== obj.id));
-                    }}
+                   onClick={() => {
+                   
+                    window.swal({
+                      title: 'Are you sure?',
+                      text: 'Do you want to delete this item?',
+                      icon: 'warning',
+                      buttons: true,
+                      dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                     
+                      if (willDelete) {
+                        setTodos(toDos.filter((todo) => todo.id !== obj.id));
+                        window.swal('Deleted!', 'Item has been deleted.', 'success');
+                      } 
+                    });
+                  }}
+                  
+                  
+                  
                     className="fas fa-times"
                     style={{
                       color: 'red'
