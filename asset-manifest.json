@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Dilippm/To-Do-app.git/static/css/main.52c047b3.css",
+    "main.js": "/Dilippm/To-Do-app.git/static/js/main.d7326202.js",
+    "static/js/787.142da1d4.chunk.js": "/Dilippm/To-Do-app.git/static/js/787.142da1d4.chunk.js",
+    "index.html": "/Dilippm/To-Do-app.git/index.html",
+    "main.52c047b3.css.map": "/Dilippm/To-Do-app.git/static/css/main.52c047b3.css.map",
+    "main.d7326202.js.map": "/Dilippm/To-Do-app.git/static/js/main.d7326202.js.map",
+    "787.142da1d4.chunk.js.map": "/Dilippm/To-Do-app.git/static/js/787.142da1d4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52c047b3.css",
+    "static/js/main.d7326202.js"
+  ]
+}
