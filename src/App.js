@@ -4,11 +4,13 @@ import { useState } from "react";
 function App() {
   const [toDos, setTodos] = useState([]);
   const [toDo, setTodo] = useState('');
+  
  
   const currentDayOfWeek = new Date().toLocaleString(
     "default",
     { weekday: "long" }
   );
+ 
 
   return (
     <div className="app">
@@ -21,6 +23,7 @@ function App() {
       </div>
       <div className="input">
         <input
+         
           value={toDo}
           onChange={(e) => setTodo(e.target.value)}
           type="text"
@@ -63,7 +66,7 @@ function App() {
                 status: false
               }
             ]);
-            setTodo(""); // Clear input field
+            setTodo(""); 
           }
         }}
           className="fas fa-plus"
